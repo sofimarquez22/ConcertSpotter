@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		5DCE879823722C0100FCB23D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879723722C0100FCB23D /* AppDelegate.swift */; };
 		5DCE879A23722C0100FCB23D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879923722C0100FCB23D /* SceneDelegate.swift */; };
-		5DCE879C23722C0100FCB23D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879B23722C0100FCB23D /* ViewController.swift */; };
+		5DCE879C23722C0100FCB23D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879B23722C0100FCB23D /* HomeViewController.swift */; };
 		5DCE879F23722C0100FCB23D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DCE879D23722C0100FCB23D /* Main.storyboard */; };
 		5DCE87A123722C0400FCB23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DCE87A023722C0400FCB23D /* Assets.xcassets */; };
 		5DCE87A423722C0400FCB23D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DCE87A223722C0400FCB23D /* LaunchScreen.storyboard */; };
 		B5F7EAC2C3C8888942FED6C1 /* Pods_ConcertSpotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A793685B9E077E26C5D9723E /* Pods_ConcertSpotter.framework */; };
 		CB983FCE2373B63E0034FC3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */; };
+<<<<<<< HEAD
 		DCE9ED5D2373BCD1004F9F48 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE9ED5C2373BCD1004F9F48 /* MapViewController.swift */; };
+=======
+		CB983FD12373BD860034FC3F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD02373BD860034FC3F /* SignInView.swift */; };
+		CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD22373C6540034FC3F /* SignUpView.swift */; };
+>>>>>>> 77682465e56ded69b3d98af23d3d990d9e1f9257
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +28,15 @@
 		5DCE879423722C0100FCB23D /* ConcertSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcertSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCE879723722C0100FCB23D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DCE879923722C0100FCB23D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5DCE879B23722C0100FCB23D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DCE879B23722C0100FCB23D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5DCE879E23722C0100FCB23D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DCE87A023722C0400FCB23D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DCE87A323722C0400FCB23D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DCE87A523722C0400FCB23D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A793685B9E077E26C5D9723E /* Pods_ConcertSpotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcertSpotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB983FD02373BD860034FC3F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CB983FD22373C6540034FC3F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DA3BA73B390FF6AD2A7FFA14 /* Pods-ConcertSpotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertSpotter.release.xcconfig"; path = "Target Support Files/Pods-ConcertSpotter/Pods-ConcertSpotter.release.xcconfig"; sourceTree = "<group>"; };
 		DCE9ED5C2373BCD1004F9F48 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,9 +74,10 @@
 		5DCE879623722C0100FCB23D /* ConcertSpotter */ = {
 			isa = PBXGroup;
 			children = (
+				CB983FCF2373BD570034FC3F /* Authentication */,
 				5DCE879723722C0100FCB23D /* AppDelegate.swift */,
 				5DCE879923722C0100FCB23D /* SceneDelegate.swift */,
-				5DCE879B23722C0100FCB23D /* ViewController.swift */,
+				5DCE879B23722C0100FCB23D /* HomeViewController.swift */,
 				5DCE879D23722C0100FCB23D /* Main.storyboard */,
 				DCE9ED5C2373BCD1004F9F48 /* MapViewController.swift */,
 				5DCE87A023722C0400FCB23D /* Assets.xcassets */,
@@ -86,6 +94,15 @@
 				A793685B9E077E26C5D9723E /* Pods_ConcertSpotter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB983FCF2373BD570034FC3F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CB983FD02373BD860034FC3F /* SignInView.swift */,
+				CB983FD22373C6540034FC3F /* SignUpView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		F1B89577D95512DE99C0DE65 /* Pods */ = {
@@ -213,8 +230,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DCE879C23722C0100FCB23D /* ViewController.swift in Sources */,
+				5DCE879C23722C0100FCB23D /* HomeViewController.swift in Sources */,
+				CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */,
 				5DCE879823722C0100FCB23D /* AppDelegate.swift in Sources */,
+				CB983FD12373BD860034FC3F /* SignInView.swift in Sources */,
 				5DCE879A23722C0100FCB23D /* SceneDelegate.swift in Sources */,
 				DCE9ED5D2373BCD1004F9F48 /* MapViewController.swift in Sources */,
 			);
