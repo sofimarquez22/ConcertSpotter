@@ -15,8 +15,12 @@
 		5DCE87A423722C0400FCB23D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DCE87A223722C0400FCB23D /* LaunchScreen.storyboard */; };
 		B5F7EAC2C3C8888942FED6C1 /* Pods_ConcertSpotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A793685B9E077E26C5D9723E /* Pods_ConcertSpotter.framework */; };
 		CB983FCE2373B63E0034FC3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */; };
+<<<<<<< HEAD
+		DCE9ED5D2373BCD1004F9F48 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE9ED5C2373BCD1004F9F48 /* MapViewController.swift */; };
+=======
 		CB983FD12373BD860034FC3F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD02373BD860034FC3F /* SignInView.swift */; };
 		CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD22373C6540034FC3F /* SignUpView.swift */; };
+>>>>>>> 77682465e56ded69b3d98af23d3d990d9e1f9257
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,7 @@
 		CB983FD02373BD860034FC3F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CB983FD22373C6540034FC3F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DA3BA73B390FF6AD2A7FFA14 /* Pods-ConcertSpotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertSpotter.release.xcconfig"; path = "Target Support Files/Pods-ConcertSpotter/Pods-ConcertSpotter.release.xcconfig"; sourceTree = "<group>"; };
+		DCE9ED5C2373BCD1004F9F48 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,7 @@
 				5DCE879923722C0100FCB23D /* SceneDelegate.swift */,
 				5DCE879B23722C0100FCB23D /* HomeViewController.swift */,
 				5DCE879D23722C0100FCB23D /* Main.storyboard */,
+				DCE9ED5C2373BCD1004F9F48 /* MapViewController.swift */,
 				5DCE87A023722C0400FCB23D /* Assets.xcassets */,
 				5DCE87A223722C0400FCB23D /* LaunchScreen.storyboard */,
 				5DCE87A523722C0400FCB23D /* Info.plist */,
@@ -229,6 +235,7 @@
 				5DCE879823722C0100FCB23D /* AppDelegate.swift in Sources */,
 				CB983FD12373BD860034FC3F /* SignInView.swift in Sources */,
 				5DCE879A23722C0100FCB23D /* SceneDelegate.swift in Sources */,
+				DCE9ED5D2373BCD1004F9F48 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
