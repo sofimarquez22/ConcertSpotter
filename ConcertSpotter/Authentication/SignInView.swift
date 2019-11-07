@@ -36,6 +36,8 @@ class SignInView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 10
+        emailField.placeholder = "Email:"
+        passwordField.placeholder = "Password:"
 
         // Do any additional setup after loading the view.
     }

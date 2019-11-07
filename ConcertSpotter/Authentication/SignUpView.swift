@@ -17,11 +17,13 @@ class SignUpView: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.placeholder = "Email:"
         passwordField.placeholder = "Password:"
+        signUpButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
     
