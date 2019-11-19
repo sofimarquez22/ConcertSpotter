@@ -60,6 +60,8 @@ class HomeViewController: UIViewController {
                 break
             case .authorizedAlways:
                 break
+            @unknown default:
+                break;
             }
         }
 }
@@ -67,6 +69,7 @@ class HomeViewController: UIViewController {
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
             let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            print(location.coordinate.longitude , " " ,location.coordinate.latitude)
             map.setRegion(region, animated: true)
         }
         
