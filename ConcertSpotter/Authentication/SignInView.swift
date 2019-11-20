@@ -27,7 +27,6 @@ class SignInView: UIViewController {
                 print("success")
                 self.performSegue(withIdentifier: "OnLoggingUserIn", sender: nil)
             } else {
-                print(error)
                 print("error can't sign in")
             }
         }
@@ -35,9 +34,15 @@ class SignInView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Auth.auth().addStateDidChangeListener() { auth, user in
+          // 2
+          if user != nil {
+            self.performSegue(withIdentifier: "OnLoggingUserIn", sender: nil)
+          }
+        }
         loginButton.layer.cornerRadius = 10
-        emailField.placeholder = "Email:"
-        passwordField.placeholder = "Password:"
+
+        
 
         // Do any additional setup after loading the view.
     }
