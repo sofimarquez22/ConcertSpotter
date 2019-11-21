@@ -14,8 +14,19 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 50000
+    var lat = 0.0;
+    var long = 0.0;
     override func viewDidLoad() {
          checkLocationServices()
+         /*
+         let locationString = String(lat) + "," + String(long)
+         let baseURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=nloLny4RAVOrwufbVORPtcbFGdxG5QCV&latlong=" + locationString + "&keyword=music"
+         print(baseURL);
+         
+         
+         */
+        // Network request snippet
+        
         }
         
         
@@ -29,6 +40,7 @@ class HomeViewController: UIViewController {
             if let location = locationManager.location?.coordinate {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
                 map.setRegion(region, animated: true)
+                
             }
         }
         
@@ -49,6 +61,24 @@ class HomeViewController: UIViewController {
                 map.showsUserLocation = true
                 centerViewOnUserLocation()
                 locationManager.startUpdatingLocation()
+                print("***********************************************")
+                let locationString =  String(lat) + "," + String(long)
+                let url = URL(string: "https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=nloLny4RAVOrwufbVORPtcbFGdxG5QCV&latlong=" + locationString + "&keyword=music")!
+                let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+                session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+                let task = session.dataTask(with: url) { (data, response, error) in
+                   if let error = error {
+                      print(error.localizedDescription)
+                   } else if let data = data,
+                      let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                      print(dataDictionary)
+                    
+                      // TODO: Get the posts and store in posts property
+                      // TODO: Reload the table view
+                  }
+                }
+                task.resume()
+                print("***********************************************")
                 break
             case .denied:
                 // Show alert instructing them how to turn on permissions
@@ -70,6 +100,9 @@ class HomeViewController: UIViewController {
             guard let location = locations.last else { return }
             let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             print(location.coordinate.longitude , " " ,location.coordinate.latitude)
+            lat = location.coordinate.latitude;
+            long = location.coordinate.longitude;
+            
             map.setRegion(region, animated: true)
         }
         
