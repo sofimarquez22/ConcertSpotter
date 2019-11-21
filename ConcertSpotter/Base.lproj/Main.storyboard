@@ -159,13 +159,22 @@
                     <view key="view" contentMode="scaleToFill" id="jdG-02-38m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u4h-JO-taA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="HsN-fg-T6J"/>
                     </view>
+                    <connections>
+                        <outlet property="map" destination="u4h-JO-taA" id="CVU-J9-4eD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWg-zb-td7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="115"/>
+            <point key="canvasLocation" x="989.85507246376824" y="114.50892857142857"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0pO-Rg-Pch">
