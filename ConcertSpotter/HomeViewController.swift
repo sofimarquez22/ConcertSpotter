@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 50000
     override func viewDidLoad() {
+
          checkLocationServices()
         }
         
