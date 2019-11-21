@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ticketMasterApi.init().request(latlong: "37.785834,-122.406417", genreKey: "music")
         // Do any additional setup after loading the view.
     }
 
