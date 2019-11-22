@@ -14,8 +14,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 50000
+    var ticketInfo = [Ticket]()
     override func viewDidLoad() {
-
+        ticketInfo = ticketMasterApi.init().request(latlong: "37.785834,-122.406417", genreKey: "music")
          checkLocationServices()
         }
         
