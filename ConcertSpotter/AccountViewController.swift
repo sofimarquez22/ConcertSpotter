@@ -30,7 +30,7 @@ class AccountViewController: UIViewController {
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
         self.profileImage.clipsToBounds = true;
         self.profileImage.layer.borderWidth = 3.0;
-        self.profileImage.layer.borderColor = UIColor.green.cgColor;
+        self.profileImage.layer.borderColor = UIColor.black.cgColor;
     }
 
 }
