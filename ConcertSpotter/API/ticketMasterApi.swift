@@ -17,7 +17,7 @@ class ticketMasterApi
         
     }
     //return object
-    func request(latlong:String, genreKey:String) -> [Ticket]{
+    func request(latlong:String, genreKey:String, completionHandler: @escaping (Result<[Ticket], Error>) -> ()){
         
         let newUrl = URL(string: url + "&latlong=" + latlong + "&keyword=" + genreKey)!
         
@@ -67,10 +67,11 @@ class ticketMasterApi
                     print("longitude: ", i.longitude)
                     print("latitude: ", i.latitude, "\n")
                 }
+                completionHandler(.success(self.ticketsArray))
             }
         }
         task.resume()
-        return self.ticketsArray;
+        
     }
           
 }
