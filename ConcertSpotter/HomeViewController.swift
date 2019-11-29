@@ -14,13 +14,38 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 50000
-    var ticketInfo = [Ticket]()
+    
+    var tickerCaller = ticketMasterApi.init()
     override func viewDidLoad() {
-        ticketInfo = ticketMasterApi.init().request(latlong: "37.785834,-122.406417", genreKey: "music")
-         checkLocationServices()
+//        put latlong in string
+        requestNewConcerts(latLong: "37.785834,-122.406417", genreKey: "music")
+        
+    }
+        
+        
+        
+    func requestNewConcerts(latLong:String, genreKey:String)
+        {
+            tickerCaller.request(latlong: latLong, genreKey: genreKey)
+            { result in
+                switch result{
+                case .success(let ticketInfo):
+                    for i in ticketInfo
+                    {
+                        print(i.venueName)
+                        print(i.concertName)
+                        print(i.minPrice)
+                        print(i.longitude)
+                        print(i.latitude)
+//                        where you will put pins
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                
+            }
         }
-        
-        
         func setupLocationManager() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest

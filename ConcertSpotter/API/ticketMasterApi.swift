@@ -58,15 +58,15 @@ class ticketMasterApi
                     }
                    
                 }
-                for i in self.ticketsArray
-                {
-                    print("concert name: ", i.concertName)
-                    print("venue name: ", i.venueName)
-                    print("url: ", i.url)
-                    print("min: " , i.minPrice)
-                    print("longitude: ", i.longitude)
-                    print("latitude: ", i.latitude, "\n")
-                }
+//                for i in self.ticketsArray
+//                {
+//                    print("concert name: ", i.concertName)
+//                    print("venue name: ", i.venueName)
+//                    print("url: ", i.url)
+//                    print("min: " , i.minPrice)
+//                    print("longitude: ", i.longitude)
+//                    print("latitude: ", i.latitude, "\n")
+//                }
                 completionHandler(.success(self.ticketsArray))
             }
         }
