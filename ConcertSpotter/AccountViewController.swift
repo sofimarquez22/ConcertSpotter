@@ -32,5 +32,21 @@ class AccountViewController: UIViewController {
         self.profileImage.layer.borderWidth = 3.0;
         self.profileImage.layer.borderColor = UIColor.black.cgColor;
     }
+    
+    
+    
+    func createProfileChangeRequest(photoUrl: URL? = nil, name: String? = nil, _ callback: ((Error?) -> ())? = nil){
+        if let request = Auth.auth().currentUser?.createProfileChangeRequest(){
+            if let name = name{
+                request.displayName = name
+            }
+            if let url = photoUrl{
+                request.photoURL = url
+            }
 
+            request.commitChanges(completion: { (error) in
+                callback?(error)
+            })
+        }
+    }
 }
