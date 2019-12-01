@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
+
     let regionInMeters: Double = 5000
     var ticketInfo = [Ticket]()
     var checked  = false;
@@ -42,9 +43,7 @@ class HomeViewController: UIViewController {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
-        
-    }
-    */
+ */
     
     func createMap()
     {
@@ -123,6 +122,30 @@ class HomeViewController: UIViewController {
             }
         }
         
+     /*
+    func requestNewConcerts(latLong:String, genreKey:String)
+        {
+            ticketCaller.request(latlong: latLong, genreKey: genreKey)
+            { result in
+                switch result{
+                case .success(let ticketInfo):
+                    for i in ticketInfo
+                    {
+                        print(i.venueName)
+                        print(i.concertName)
+                        print(i.minPrice)
+                        print(i.longitude)
+                        print(i.latitude)
+//                        where you will put pins
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                
+            }
+        }
+ */
         func setupLocationManager() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest

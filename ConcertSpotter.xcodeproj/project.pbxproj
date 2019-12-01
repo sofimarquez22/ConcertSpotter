@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D08DD1D2388B41200D66E71 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08DD1C2388B41200D66E71 /* AccountViewController.swift */; };
+		5D08DD1F2388B60500D66E71 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08DD1E2388B60500D66E71 /* DiscoverViewController.swift */; };
 		5DCE879823722C0100FCB23D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879723722C0100FCB23D /* AppDelegate.swift */; };
 		5DCE879A23722C0100FCB23D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879923722C0100FCB23D /* SceneDelegate.swift */; };
 		5DCE879C23722C0100FCB23D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCE879B23722C0100FCB23D /* HomeViewController.swift */; };
@@ -17,10 +19,14 @@
 		CB983FCE2373B63E0034FC3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */; };
 		CB983FD12373BD860034FC3F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD02373BD860034FC3F /* SignInView.swift */; };
 		CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD22373C6540034FC3F /* SignUpView.swift */; };
+		CBB2FFAE23839191006B140E /* ticketMasterApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB2FFAD23839191006B140E /* ticketMasterApi.swift */; };
+		CBBB3644238616BE00494A9E /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBB3643238616BE00494A9E /* Ticket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F6A398B061403A602F94838 /* Pods-ConcertSpotter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertSpotter.debug.xcconfig"; path = "Target Support Files/Pods-ConcertSpotter/Pods-ConcertSpotter.debug.xcconfig"; sourceTree = "<group>"; };
+		5D08DD1C2388B41200D66E71 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		5D08DD1E2388B60500D66E71 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		5DCE879423722C0100FCB23D /* ConcertSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcertSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCE879723722C0100FCB23D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DCE879923722C0100FCB23D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +39,8 @@
 		CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB983FD02373BD860034FC3F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CB983FD22373C6540034FC3F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		CBB2FFAD23839191006B140E /* ticketMasterApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketMasterApi.swift; sourceTree = "<group>"; };
+		CBBB3643238616BE00494A9E /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		DA3BA73B390FF6AD2A7FFA14 /* Pods-ConcertSpotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertSpotter.release.xcconfig"; path = "Target Support Files/Pods-ConcertSpotter/Pods-ConcertSpotter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +77,8 @@
 		5DCE879623722C0100FCB23D /* ConcertSpotter */ = {
 			isa = PBXGroup;
 			children = (
+				CBBB36422386169100494A9E /* classes */,
+				CBB2FFAC23839173006B140E /* API */,
 				CB983FCF2373BD570034FC3F /* Authentication */,
 				5DCE879723722C0100FCB23D /* AppDelegate.swift */,
 				5DCE879923722C0100FCB23D /* SceneDelegate.swift */,
@@ -78,6 +88,8 @@
 				5DCE87A223722C0400FCB23D /* LaunchScreen.storyboard */,
 				5DCE87A523722C0400FCB23D /* Info.plist */,
 				CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */,
+				5D08DD1C2388B41200D66E71 /* AccountViewController.swift */,
+				5D08DD1E2388B60500D66E71 /* DiscoverViewController.swift */,
 			);
 			path = ConcertSpotter;
 			sourceTree = "<group>";
@@ -97,6 +109,22 @@
 				CB983FD22373C6540034FC3F /* SignUpView.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CBB2FFAC23839173006B140E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CBB2FFAD23839191006B140E /* ticketMasterApi.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CBBB36422386169100494A9E /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				CBBB3643238616BE00494A9E /* Ticket.swift */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 		F1B89577D95512DE99C0DE65 /* Pods */ = {
@@ -224,8 +252,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D08DD1F2388B60500D66E71 /* DiscoverViewController.swift in Sources */,
 				5DCE879C23722C0100FCB23D /* HomeViewController.swift in Sources */,
+				CBB2FFAE23839191006B140E /* ticketMasterApi.swift in Sources */,
+				5D08DD1D2388B41200D66E71 /* AccountViewController.swift in Sources */,
 				CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */,
+				CBBB3644238616BE00494A9E /* Ticket.swift in Sources */,
 				5DCE879823722C0100FCB23D /* AppDelegate.swift in Sources */,
 				CB983FD12373BD860034FC3F /* SignInView.swift in Sources */,
 				5DCE879A23722C0100FCB23D /* SceneDelegate.swift in Sources */,
