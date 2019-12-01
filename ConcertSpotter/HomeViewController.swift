@@ -14,15 +14,35 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 50000
+    var lat:Double = 0.0
+    var long:Double = 0.0
     
     var tickerCaller = ticketMasterApi.init()
     override func viewDidLoad() {
 //        put latlong in string
-        requestNewConcerts(latLong: "37.785834,-122.406417", genreKey: "music")
+        guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return }
+        lat = (locValue.latitude)
+        long = (locValue.longitude)
+        let latlong  = String(lat) + "," + String(long)
+        requestNewConcerts(latLong: latlong, genreKey: "music")
+        
         
     }
         
-        
+    
+    func createAnnotations(ticketInfo : [Ticket])
+    {
+        for ticket in ticketInfo{
+            let annotations = MKPointAnnotation()
+            annotations.title = ticket.venueName
+            let lat = Double(ticket.latitude) ?? 0.0
+            let long = Double(ticket.longitude) ?? 0.0
+            annotations.coordinate = CLLocationCoordinate2D(latitude: lat , longitude: long )
+            print(ticket.venueName,",",lat,",",long)
+            map.addAnnotation(annotations)
+        }
+    }
+
         
     func requestNewConcerts(latLong:String, genreKey:String)
         {
@@ -39,6 +59,7 @@ class HomeViewController: UIViewController {
                         print(i.latitude)
 //                        where you will put pins
                     }
+                    self.createAnnotations(ticketInfo: ticketInfo)
                     
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -68,7 +89,6 @@ class HomeViewController: UIViewController {
                 // Show alert letting the user know they have to turn this on.
             }
         }
-        
         
         func checkLocationAuthorization() {
             switch CLLocationManager.authorizationStatus() {
