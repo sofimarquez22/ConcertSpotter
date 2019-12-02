@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class AccountViewController: UIViewController {
 
@@ -15,10 +17,14 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var manage: UILabel!
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var tellFriend: UILabel!
-    @IBOutlet weak var signOut: UIButton!
+    
+    let userID = Auth.auth().currentUser?.uid
+    var ref : DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
         
         manage.layer.borderWidth = 2.0
         manage.layer.cornerRadius = 8
@@ -31,10 +37,36 @@ class AccountViewController: UIViewController {
         self.profileImage.clipsToBounds = true;
         self.profileImage.layer.borderWidth = 3.0;
         self.profileImage.layer.borderColor = UIColor.black.cgColor;
+        
+        self.getUser()
+        
     }
     
+    @IBAction func signOut(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.dismiss(animated: true, completion: nil)
+        }
+        catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     
-    
+    func getUser(){
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let first = value?["firstName"] as? String ?? ""
+            let last = value?["lastName"] as? String ?? ""
+            self.username.text = first + " " + last
+            print("read")
+        }) { (error) in
+            print("not working")
+        }
+    }
+
+
     func createProfileChangeRequest(photoUrl: URL? = nil, name: String? = nil, _ callback: ((Error?) -> ())? = nil){
         if let request = Auth.auth().currentUser?.createProfileChangeRequest(){
             if let name = name{
