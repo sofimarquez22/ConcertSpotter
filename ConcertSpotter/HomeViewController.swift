@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var map: MKMapView!
@@ -16,6 +18,9 @@ class HomeViewController: UIViewController {
     let regionInMeters: Double = 50000
     var lat:Double = 0.0
     var long:Double = 0.0
+    
+    var ticketMap: [MKPointAnnotation: Ticket] = [:]
+    
     
     var tickerCaller = ticketMasterApi.init()
     override func viewDidLoad() {
@@ -25,22 +30,27 @@ class HomeViewController: UIViewController {
         long = (locValue.longitude)
         let latlong  = String(lat) + "," + String(long)
         requestNewConcerts(latLong: latlong, genreKey: "music")
-        
-        
+ 
+        map.delegate = self
     }
         
+        
+        
+        
+        
+        
     
-    func createAnnotations(ticketInfo : [Ticket])
+    func createAnnotations(ticket: Ticket) -> MKPointAnnotation
     {
-        for ticket in ticketInfo{
-            let annotations = MKPointAnnotation()
-            annotations.title = ticket.venueName
+        
+            let annotation = MKPointAnnotation()
+            annotation.title = ticket.venueName
             let lat = Double(ticket.latitude) ?? 0.0
             let long = Double(ticket.longitude) ?? 0.0
-            annotations.coordinate = CLLocationCoordinate2D(latitude: lat , longitude: long )
-            print(ticket.venueName,",",lat,",",long)
-            map.addAnnotation(annotations)
-        }
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lat , longitude: long )
+            map.addAnnotation(annotation)
+            return annotation
+        
     }
 
         
@@ -49,17 +59,20 @@ class HomeViewController: UIViewController {
             tickerCaller.request(latlong: latLong, genreKey: genreKey)
             { result in
                 switch result{
-                case .success(let ticketInfo):
-                    for i in ticketInfo
+                case .success(let tickets):
+                    
+                    for ticket in tickets
                     {
-                        print(i.venueName)
-                        print(i.concertName)
-                        print(i.minPrice)
-                        print(i.longitude)
-                        print(i.latitude)
+                        print(ticket.venueName)
+                        print(ticket.concertName)
+                        print(ticket.minPrice)
+                        print(ticket.longitude)
+                        print(ticket.latitude)
+                        self.ticketMap[self.createAnnotations(ticket: ticket)] = ticket
+                        
 //                        where you will put pins
                     }
-                    self.createAnnotations(ticketInfo: ticketInfo)
+                   
                     
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -124,7 +137,16 @@ class HomeViewController: UIViewController {
         func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
             checkLocationAuthorization()
         }
+        
     }
+
+extension HomeViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let annotation = view.annotation as? MKPointAnnotation else { return }
+        print(ticketMap[annotation]?.concertName ?? "unknown")
+    }
+}
     
     /*
     // MARK: - Navigation
