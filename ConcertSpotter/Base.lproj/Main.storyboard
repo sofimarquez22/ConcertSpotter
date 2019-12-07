@@ -200,7 +200,7 @@
         <!--Details-->
         <scene sceneID="Z75-oX-fJi">
             <objects>
-                <viewController id="fKY-F4-t8B" sceneMemberID="viewController">
+                <viewController id="fKY-F4-t8B" customClass="DetailsViewController" customModule="ConcertSpotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="goB-rr-BKJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,7 +304,7 @@
         <!--Manage Account-->
         <scene sceneID="aBC-iP-v0Q">
             <objects>
-                <viewController id="ZLw-91-8sv" sceneMemberID="viewController">
+                <viewController id="ZLw-91-8sv" customClass="ManageAccountViewController" customModule="ConcertSpotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9i7-Ce-qu7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
