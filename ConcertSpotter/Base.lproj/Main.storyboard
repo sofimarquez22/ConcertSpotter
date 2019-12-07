@@ -190,11 +190,28 @@
                     <navigationItem key="navigationItem" title="Map" id="xd5-0u-i6e"/>
                     <connections>
                         <outlet property="map" destination="u4h-JO-taA" id="CVU-J9-4eD"/>
+                        <segue destination="fKY-F4-t8B" kind="show" id="btp-Od-HSv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWg-zb-td7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="1349"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="Z75-oX-fJi">
+            <objects>
+                <viewController id="fKY-F4-t8B" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="goB-rr-BKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QeU-Oe-xM0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="tko-CH-SJ4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLy-ZB-TA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-151" y="2110"/>
         </scene>
         <!--Discover-->
         <scene sceneID="9So-hT-zBI">
@@ -284,6 +301,22 @@
             </objects>
             <point key="canvasLocation" x="1482.608695652174" y="1348.6607142857142"/>
         </scene>
+        <!--Manage Account-->
+        <scene sceneID="aBC-iP-v0Q">
+            <objects>
+                <viewController id="ZLw-91-8sv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9i7-Ce-qu7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FcH-H3-bfe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Manage Account" id="GOs-D5-Gvl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x93-jA-ykV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="2125"/>
+        </scene>
         <!--Account-->
         <scene sceneID="0pO-Rg-Pch">
             <objects>
@@ -345,6 +378,7 @@
                         <outlet property="profileImage" destination="EDa-2c-EAf" id="PZ3-ww-Q3g"/>
                         <outlet property="tellFriend" destination="a7h-vt-Y8T" id="nWv-ib-FN3"/>
                         <outlet property="username" destination="20Z-ty-G7n" id="VLd-yR-xS7"/>
+                        <segue destination="ZLw-91-8sv" kind="show" id="Zc3-gj-38k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbF-9i-8kN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
