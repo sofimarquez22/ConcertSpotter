@@ -11,7 +11,15 @@ import MapKit
 import CoreLocation
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
+    // Spotify auth
+    var auth = SPTAuth.defaultInstance()!
+    var session:SPTSession!
+
+    var player: SPTAudioStreamingController?
+    var loginUrl: URL?
+     @IBOutlet weak var loginButton: UIButton!
+    
 
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
@@ -30,15 +38,74 @@ class HomeViewController: UIViewController {
         long = (locValue.longitude)
         let latlong  = String(lat) + "," + String(long)
         requestNewConcerts(latLong: latlong, genreKey: "music")
+        
+        setup()
+//        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.updateAfterFirstLogin), name: NSNotification.Name(rawValue: "loginSuccessfull"), object: nil)
  
         map.delegate = self
     }
         
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    func setup () {
+        // insert redirect your url and client ID below
+        let redirectURL = "ConcertSpotter://returnAfterLogin" // put your redirect URL here
+        let clientID = "927201a918df42b19d0dd860f4e53726" // put your client ID here
+        auth.redirectURL     = URL(string: redirectURL)
+        auth.clientID        = "927201a918df42b19d0dd860f4e53726"
+        auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope]
+        loginUrl = auth.spotifyWebAuthenticationURL()
+        
+    }
         
         
         
+    func initializaPlayer(authSession:SPTSession){
+        if self.player == nil {
+            
+            
+            self.player = SPTAudioStreamingController.sharedInstance()
+            self.player!.playbackDelegate = self
+            self.player!.delegate = self
+            try! player?.start(withClientId: auth.clientID)
+            self.player!.login(withAccessToken: authSession.accessToken)
+            
+        }
         
+    }
+    
+    @objc func updateAfterFirstLogin () {
         
+        loginButton.isHidden = true
+        let userDefaults = UserDefaults.standard
+        
+        if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
+            
+            let sessionDataObj = sessionObj as! Data
+            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionDataObj) as! SPTSession
+            
+            self.session = firstTimeSession
+            initializaPlayer(authSession: session)
+            self.loginButton.isHidden = true
+           // self.loadingLabel.isHidden = false
+            
+        }
+        
+    }
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+      
+           
+           if UIApplication.shared.openURL(loginUrl!) {
+               
+               if auth.canHandle(auth.redirectURL) {
+                   // To do - build in error handling
+               }
+           }
+       }
     
     func createAnnotations(ticket: Ticket) -> MKPointAnnotation
     {
