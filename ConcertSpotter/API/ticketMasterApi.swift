@@ -34,7 +34,14 @@ class ticketMasterApi
 
                 for event in temp {
                     guard let images = event["images"] as? [[String:Any]] else{return}
-                    guard let imageUrl = images[0]["url"] as? String else{return}
+                    var imageUrl:String = ""
+                    for image in images{
+                        if(image["width"] as? Int == 1024){
+                            imageUrl = image["url"] as? String ?? ""
+                            break
+                        }
+                    }
+                    //guard let imageUrl = images[0]["url"] as? String else{return}
                     guard let info = event["_embedded"] as? [String:Any] else{return}
                     guard let venue = info["venues"]  as? [[String:Any]] else{return}
                     
