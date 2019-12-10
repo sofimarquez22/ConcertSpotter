@@ -38,10 +38,12 @@ class DetailsViewController: UIViewController {
         concertName.text = details.concertName
         venueName.text = details.venueName
         minimumPrice.text = "Lowest Price: " + String(details.minPrice)
-        
     }
     
     @IBAction func getTickets(_ sender: Any) {
+        if let url = URL(string: details.url){
+            UIApplication.shared.open(url)
+        }
     }
 
 }
