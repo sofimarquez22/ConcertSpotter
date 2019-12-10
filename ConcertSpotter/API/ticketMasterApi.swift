@@ -33,7 +33,8 @@ class ticketMasterApi
                 let temp = t["events"] as! [[String:Any]]
 
                 for event in temp {
-                    
+                    guard let images = event["images"] as? [[String:Any]] else{return}
+                    guard let imageUrl = images[0]["url"] as? String else{return}
                     guard let info = event["_embedded"] as? [String:Any] else{return}
                     guard let venue = info["venues"]  as? [[String:Any]] else{return}
                     
@@ -51,7 +52,7 @@ class ticketMasterApi
                                     let name = event["name"] as? String
                                     let url = event["url"] as? String
                                     let venueName = venue[0]["name"] as? String
-                                    self.ticketsArray.append(Ticket(concertName: name ??  "", longitude: longitude, latitude: latitude, url: url ?? "", venueName: venueName ?? "", minPrice: b ?? 0.0))
+                                    self.ticketsArray.append(Ticket(concertName: name ??  "", longitude: longitude, latitude: latitude, url: url ?? "", venueName: venueName ?? "",imageUrl: imageUrl , minPrice: b ?? 0.0))
                                 }
                             }
                         }

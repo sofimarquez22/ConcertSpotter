@@ -18,9 +18,9 @@ class HomeViewController: UIViewController {
     let regionInMeters: Double = 50000
     var lat:Double = 0.0
     var long:Double = 0.0
-    
+    var annotation: MKPointAnnotation = MKPointAnnotation()
     var ticketMap: [MKPointAnnotation: Ticket] = [:]
-    
+//    var senderTickets:[Ticket]
     
     var tickerCaller = ticketMasterApi.init()
     override func viewDidLoad() {
@@ -124,6 +124,13 @@ class HomeViewController: UIViewController {
                 break;
             }
         }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailsViewController
+        {
+            vc.details = ticketMap[annotation]!
+        }
+           
+       }
 }
     extension HomeViewController: CLLocationManagerDelegate{
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -143,19 +150,18 @@ class HomeViewController: UIViewController {
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        guard let annotation = view.annotation as? MKPointAnnotation else { return }
+        annotation = view.annotation as! MKPointAnnotation
+        
+        
         print(ticketMap[annotation]?.concertName ?? "unknown")
+        
+        self.performSegue(withIdentifier: "toVenueDetails", sender: nil)
+        
+        
     }
 }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+
 
 

@@ -16,6 +16,8 @@
 		5DCE87A123722C0400FCB23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DCE87A023722C0400FCB23D /* Assets.xcassets */; };
 		5DCE87A423722C0400FCB23D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DCE87A223722C0400FCB23D /* LaunchScreen.storyboard */; };
 		B5F7EAC2C3C8888942FED6C1 /* Pods_ConcertSpotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A793685B9E077E26C5D9723E /* Pods_ConcertSpotter.framework */; };
+		CB65CADF239B83FA0035A310 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB65CADE239B83FA0035A310 /* DetailsViewController.swift */; };
+		CB65CAE1239B84080035A310 /* ManageAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB65CAE0239B84080035A310 /* ManageAccountViewController.swift */; };
 		CB983FCE2373B63E0034FC3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */; };
 		CB983FD12373BD860034FC3F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD02373BD860034FC3F /* SignInView.swift */; };
 		CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983FD22373C6540034FC3F /* SignUpView.swift */; };
@@ -36,6 +38,8 @@
 		5DCE87A323722C0400FCB23D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DCE87A523722C0400FCB23D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A793685B9E077E26C5D9723E /* Pods_ConcertSpotter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcertSpotter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB65CADE239B83FA0035A310 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ConcertSpotter/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		CB65CAE0239B84080035A310 /* ManageAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageAccountViewController.swift; sourceTree = "<group>"; };
 		CB983FCD2373B63E0034FC3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB983FD02373BD860034FC3F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CB983FD22373C6540034FC3F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				CBB2FFAC23839173006B140E /* API */,
 				CB983FCF2373BD570034FC3F /* Authentication */,
 				5DCE879723722C0100FCB23D /* AppDelegate.swift */,
+				CB65CAE0239B84080035A310 /* ManageAccountViewController.swift */,
+				CB65CADE239B83FA0035A310 /* DetailsViewController.swift */,
 				5DCE879923722C0100FCB23D /* SceneDelegate.swift */,
 				5DCE879B23722C0100FCB23D /* HomeViewController.swift */,
 				5DCE879D23722C0100FCB23D /* Main.storyboard */,
@@ -256,11 +262,13 @@
 				5DCE879C23722C0100FCB23D /* HomeViewController.swift in Sources */,
 				CBB2FFAE23839191006B140E /* ticketMasterApi.swift in Sources */,
 				5D08DD1D2388B41200D66E71 /* AccountViewController.swift in Sources */,
+				CB65CAE1239B84080035A310 /* ManageAccountViewController.swift in Sources */,
 				CB983FD32373C6540034FC3F /* SignUpView.swift in Sources */,
 				CBBB3644238616BE00494A9E /* Ticket.swift in Sources */,
 				5DCE879823722C0100FCB23D /* AppDelegate.swift in Sources */,
 				CB983FD12373BD860034FC3F /* SignInView.swift in Sources */,
 				5DCE879A23722C0100FCB23D /* SceneDelegate.swift in Sources */,
+				CB65CADF239B83FA0035A310 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

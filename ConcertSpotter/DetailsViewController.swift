@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class DetailsViewController: UIViewController {
 
+    var annotations:MKPointAnnotation = MKPointAnnotation()
+    var details:Ticket = Ticket(concertName: "", longitude: "", latitude: "", url: "", venueName: "" , imageUrl: "", minPrice: 0.0)
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(details.minPrice)
+        print(details.concertName)
+        print(details.venueName)
+        print(details.imageUrl)
+        print(details.url)
+        
 
         // Do any additional setup after loading the view.
     }
