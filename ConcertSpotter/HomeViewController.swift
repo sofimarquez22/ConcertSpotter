@@ -20,10 +20,10 @@ class HomeViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     var loginUrl: URL?
      @IBOutlet weak var loginButton: UIButton!
     
-
+    
     @IBOutlet weak var map: MKMapView!
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 50000
+    let regionInMeters: Double = 599999
     var lat:Double = 0.0
     var long:Double = 0.0
     var annotation: MKPointAnnotation = MKPointAnnotation()
@@ -33,10 +33,12 @@ class HomeViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     var tickerCaller = ticketMasterApi.init()
     override func viewDidLoad() {
 //        put latlong in string
+        print("Look how they massacred my boy")
         guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return }
         lat = (locValue.latitude)
         long = (locValue.longitude)
         let latlong  = String(lat) + "," + String(long)
+        checkLocationServices()
         requestNewConcerts(latLong: latlong, genreKey: "music")
         
         setup()
@@ -137,6 +139,7 @@ class HomeViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
                         print(ticket.latitude)
                         self.ticketMap[self.createAnnotations(ticket: ticket)] = ticket
                         
+                        
 //                        where you will put pins
                     }
                    
@@ -194,6 +197,7 @@ class HomeViewController: UIViewController, SPTAudioStreamingPlaybackDelegate, S
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailsViewController
         {
+            
             vc.details = ticketMap[annotation]!
         }
            
@@ -220,7 +224,7 @@ extension HomeViewController: MKMapViewDelegate {
         annotation = view.annotation as! MKPointAnnotation
         
         
-        print(ticketMap[annotation]?.concertName ?? "unknown")
+//        print(ticketMap[annotation]?.concertName ?? "unknown")
         
         self.performSegue(withIdentifier: "toVenueDetails", sender: nil)
         
