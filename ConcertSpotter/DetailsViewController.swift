@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController {
     
     var annotations:MKPointAnnotation = MKPointAnnotation()
     var details:Ticket = Ticket(concertName: "", longitude: "", latitude: "", url: "", venueName: "" , imageUrl: "", minPrice: 0.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(details.minPrice)
@@ -30,9 +31,9 @@ class DetailsViewController: UIViewController {
 //        print(details.venueName)
 //        print(details.imageUrl)
 //        print(details.url)
-        
+//        print(details.count)
         getTickets.layer.cornerRadius = 8
-        
+//
         let poster = URL(string: details.imageUrl)
         posterView.af_setImage(withURL: poster!)
         concertName.text = details.concertName

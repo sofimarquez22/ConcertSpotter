@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var username: UILabel!
