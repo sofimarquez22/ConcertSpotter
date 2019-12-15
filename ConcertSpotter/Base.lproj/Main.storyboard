@@ -374,7 +374,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDa-2c-EAf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDa-2c-EAf">
                                 <rect key="frame" x="107" y="122" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -416,12 +416,21 @@
                                     <action selector="signOut:" destination="2OY-qh-8t3" eventType="touchUpInside" id="7uN-ce-W7F"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGg-6b-6ti">
+                                <rect key="frame" x="279" y="294" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="add-circular-outlined-button"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="2OY-qh-8t3" eventType="touchUpInside" id="6qC-MB-Q63"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lZn-4l-bbu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="LSt-RL-0VB"/>
                     <connections>
+                        <outlet property="addImage" destination="YGg-6b-6ti" id="qaI-Tn-XFM"/>
                         <outlet property="history" destination="kUD-hL-2dn" id="yEx-UH-ExR"/>
                         <outlet property="manage" destination="09s-Hs-gzy" id="78y-tu-k5l"/>
                         <outlet property="profileImage" destination="EDa-2c-EAf" id="PZ3-ww-Q3g"/>
@@ -498,6 +507,9 @@
             <point key="canvasLocation" x="3133" y="581"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-circular-outlined-button" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uLR-ae-cW2"/>
     </inferredMetricsTieBreakers>
