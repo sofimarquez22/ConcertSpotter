@@ -10,16 +10,20 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class AccountViewController: UIViewController, UIImagePickerControllerDelegate {
+class AccountViewController: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var addImage: UIButton!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var manage: UILabel!
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var tellFriend: UILabel!
     
+
     let userID = Auth.auth().currentUser?.uid
     var ref : DatabaseReference!
+    
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +41,23 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate {
         self.profileImage.clipsToBounds = true;
         self.profileImage.layer.borderWidth = 3.0;
         self.profileImage.layer.borderColor = UIColor.black.cgColor;
+        imagePicker.delegate = self
         
         self.getUser()
         
+        
+    }
+    
+    @IBAction func chooseImage(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+
+            
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = true
+
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signOut(_ sender: Any) {
@@ -80,5 +98,14 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate {
                 callback?(error)
             })
         }
+    }
+}
+
+extension AccountViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+    func imagePickerController( _ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey:Any]){
+        if let image = info[.originalImage] as? UIImage {
+            profileImage.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
